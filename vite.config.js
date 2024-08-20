@@ -11,4 +11,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    resolve: {
+        alias: {
+            'bootstrap-icons': '/node_modules/bootstrap-icons',
+        }
+    }
 });
