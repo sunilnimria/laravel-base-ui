@@ -100,8 +100,7 @@
                                                                     </div>
                                                                     <div class="col-md-7 input-file-image">
                                                                         <input type="file" class="form-control"
-                                                                            name="logo" onChange="readURL(this);"
-                                                                            accept="image/png, image/gif, image/jpeg, image/jpg" />
+                                                                            name="logo" accept="image/png, image/gif, image/jpeg, image/jpg" />
                                                                         @error('logo')
                                                                             <div class="text-danger">{{ $message }}</div>
                                                                         @enderror
@@ -126,8 +125,7 @@
                                                                     </div>
                                                                     <div class="col-md-7 input-file-image">
                                                                         <input type="file" class="form-control"
-                                                                            name="fevicon" onChange="readURL(this);"
-                                                                            accept="image/png, image/gif, image/jpeg, image/jpg" />
+                                                                            name="fevicon" accept="image/png, image/gif, image/jpeg, image/jpg" />
                                                                     </div>
                                                                     <div class="col-md-2 prev-file-image">
                                                                         @if (empty($fevicon))

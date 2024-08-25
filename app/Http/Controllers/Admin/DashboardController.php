@@ -10,6 +10,8 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Traits\AuthorizationChecker;
 use App\Http\Requests\SettingsRequest;
+use App\Models\District;
+use App\Models\State;
 use Spatie\Permission\Models\Permission;
 
 class DashboardController extends Controller
@@ -143,5 +145,15 @@ class DashboardController extends Controller
         ];
 
         return Qs::jsonResponse($type, $arr);
+    }
+
+    public function getStates($id){
+        $states = State::where('country_id', '=', $id )->get();
+        return json_encode($states);
+    }
+
+    public function getDistricts($id){
+        $districts = District::where('state_id', '=', $id )->get();
+        return json_encode($districts);
     }
 }

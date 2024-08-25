@@ -36,10 +36,10 @@
 
                 {{-- Student Managment Menu --}}
                 <x-backend.menu.heading title="Student Managment" icon="fa fa-ellipsis-h" />
-                {{-- @if (Auth::user()->can('student.view'))
+                @if (Auth::user()->can('student.view'))
                     <x-backend.menu.item title="Student" link="{{ route('students.index') }}"
                         icon="fas fa-book-reader" />
-                @endif --}}
+                @endif
 
 
                 {{-- Admin Penal --}}

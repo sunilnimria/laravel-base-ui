@@ -122,4 +122,9 @@ class SectionController extends Controller
         }
         return Qs::jsonResponse($type, $arr);
     }
+
+    public function getSections(int $id){
+        $sections = Section::where('my_class_id', '=', $id )->get();
+        return json_encode($sections);
+    }
 }

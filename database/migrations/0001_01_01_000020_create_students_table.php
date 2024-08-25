@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('srn')->unique();
+            // $table->string('srn')->unique();
+            $table->string('admission_no')->unique();
             $table->unsignedBigInteger('roll_no')->nullable();
             $table->string('name');
             $table->string('father_name');
@@ -26,17 +27,17 @@ return new class extends Migration
             $table->enum('gender',['male', 'female', 'other']);
             $table->date('dob');
             $table->date('reg_date');
+            $table->foreignId('reg_class')->nullable()->constrained('my_classes')->nullOnDelete()->cascadeOnUpdate();
             $table->date('reg_end_date')->nullable();
-            $table->unsignedInteger('class_admission');
             $table->foreignId('my_class_id')->nullable()->constrained('my_classes')->nullOnDelete()->cascadeOnUpdate();
             $table->foreignId('section_id')->nullable()->constrained('sections')->nullOnDelete()->cascadeOnUpdate();
-            $table->string('add_house');
-            $table->string('add_villege');
-            $table->string('add_city')->nullable();
-            $table->foreignId('add_countary')->nullable()->constrained('countries')->nullOnDelete()->cascadeOnUpdate();
-            $table->foreignId('add_state')->nullable()->constrained('states')->nullOnDelete()->cascadeOnUpdate();
-            $table->foreignId('add_district')->nullable()->constrained('districts')->nullOnDelete()->cascadeOnUpdate();
-            $table->unsignedInteger('add_pin_code');
+            $table->string('house_no');
+            $table->string('landmark');
+            $table->string('city');
+            $table->foreignId('country_id')->nullable()->constrained('countries')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignId('state_id')->nullable()->constrained('states')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignId('district_id')->nullable()->constrained('districts')->nullOnDelete()->cascadeOnUpdate();
+            $table->unsignedInteger('pin_code');
             $table->foreignId('photo')->nullable()->constrained('files')->nullOnDelete()->cascadeOnUpdate();
             $table->foreignId('blood_group')->nullable()->constrained('blood_groups')->nullOnDelete()->cascadeOnUpdate();
             $table->softDeletes();
